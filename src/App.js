@@ -1,23 +1,18 @@
 import './scss/App.scss';
 import React from 'react';
 function App() {
-  const [tasks, setDeleteTask] = React.useState([
-    {
-      id: 0,
-      title: 'hello world',
-    },
-    {
-      id: 1,
-      title: 'hello world1',
-    },
-    {
-      id: 2,
-      title: 'hello world2',
-    },
-  ]);
+  const [tasks, setTasks] = React.useState([]);
   const [input, setInput] = React.useState('');
-  const deleteTaskHandler = (index) => {
-    setDeleteTask(tasks.filter((t) => t.id !== index));
+  const deleteTaskHandler = (task) => {
+    setTasks(tasks.filter((t) => t.id !== task.id));
+  };
+  const addNewTask = () => {
+    const taskNew = {
+      id: Date.now(),
+      title: input,
+    };
+    console.log(taskNew);
+    setTasks([...tasks, taskNew]);
   };
   return (
     <div className="App">
@@ -32,14 +27,16 @@ function App() {
               placeholder="Enter the title for your task."
               onChange={(event) => setInput(event.target.value)}
             />
-            <button className="create-btn">Create task</button>
+            <button className="create-btn" onClick={addNewTask}>
+              Create task
+            </button>
           </form>
           <div className="tasks">
             <ul>
-              {tasks.map((task, index) => (
-                <li>
+              {tasks.map((task) => (
+                <li key={task.id}>
                   <p>{task.title}</p>
-                  <button onClick={() => deleteTaskHandler(index)}>delete</button>
+                  <button onClick={() => deleteTaskHandler(task)}>delete</button>
                 </li>
               ))}
             </ul>
