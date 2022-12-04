@@ -33,8 +33,9 @@ function App() {
           </form>
           <div className="tasks">
             <ul>
-              {tasks.map((task) => (
+              {tasks.map((task, index) => (
                 <li key={task.id}>
+                  <input type="checkbox" />
                   <p>{task.title}</p>
                   <button onClick={() => deleteTaskHandler(task)}>delete</button>
                 </li>
