@@ -15,6 +15,7 @@ function App() {
       title: 'hello world2',
     },
   ]);
+  const [input, setInput] = React.useState('');
   const deleteTaskHandler = (index) => {
     setDeleteTask(tasks.filter((t) => t.id !== index));
   };
@@ -25,9 +26,12 @@ function App() {
           <h1 className="header__title">react-to-do-list</h1>
         </header>
         <section className="content">
-          <form>
-            <input type="text" />
-            <input type="text" />
+          <form onClick={(e) => e.preventDefault()}>
+            <input
+              type="text"
+              placeholder="Enter the title for your task."
+              onChange={(event) => setInput(event.target.value)}
+            />
             <button className="create-btn">Create task</button>
           </form>
           <div className="tasks">

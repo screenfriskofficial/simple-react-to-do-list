@@ -40,6 +40,12 @@
       background-color: transparent;
       width: 100%;
       padding: 10px;
+      &::placeholder {
+        color: #fff;
+      }
+      &:focus {
+        outline: none;
+      }
     }
   }
   .create-btn {
