@@ -1,0 +1,32 @@
+.root {
+  margin-top: 20px;
+  ul {
+    list-style-type: none;
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid #19323c;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #19323c;
+    color: #fff;
+    transition: 0.25s;
+    &:hover {
+      background-color: #f2545b;
+      button {
+        outline: 0;
+      }
+    }
+    p {
+      margin: 10px;
+    }
+    button {
+      padding: 5px;
+      margin: 5px;
+      outline: 2px solid #000;
+    }
+  }
+}
